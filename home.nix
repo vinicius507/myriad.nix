@@ -2,26 +2,45 @@
   home.username = "vini";
   home.homeDirectory = "/home/vini";
 
-  programs.home-manager.enable = true;
-  programs.fish = {
-    enable = true;
-    interactiveShellInit =
-      ''
-        set acceptable_terms xterm-256color screen256-color xterm-termite
+  home.packages = with pkgs; [
+    bat
+    gh
+    git-crypt
+    ripgrep
+  ];
 
-        if contains $TERM $acceptable_terms
-            fish_vi_key_bindings
-        end
+  programs = {
+    home-manager.enable = true;
 
-        zoxide init fish | source
-        starship init fish | source
-      '';
-  };
+    fish = {
+      enable = true;
+      interactiveShellInit =
+        ''
+          set acceptable_terms xterm-256color screen256-color xterm-termite
 
-  programs.neovim = {
-    enable = true;
-    vimAlias = true;
-    defaultEditor = true;
+          if contains $TERM $acceptable_terms
+              fish_vi_key_bindings
+          end
+
+          zoxide init fish | source
+          starship init fish | source
+        '';
+    };
+    git = {
+      enable = true;
+
+      userName = "Vinicius Oliveira";
+      userEmail = "vinicius@myriad.codes";
+
+      extraConfig = {
+        github.user = "vinicius507";
+      };
+    };
+    neovim = {
+      enable = true;
+      vimAlias = true;
+      defaultEditor = true;
+    };
   };
 
   xdg.configFile = {
