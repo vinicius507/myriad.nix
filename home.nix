@@ -6,6 +6,7 @@
     bat
     gh
     git-crypt
+    kubectl
     ripgrep
     zoxide
   ];
@@ -15,6 +16,7 @@
       source = ./config/ssh;
       recursive = true;
     };
+    ".kube/config".source = ./config/kube/config;
   };
 
   programs = {
