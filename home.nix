@@ -9,6 +9,13 @@
     ripgrep
   ];
 
+  home.file = {
+    ".ssh/keys/" = {
+      source = ./config/ssh;
+      recursive = true;
+    };
+  };
+
   programs = {
     home-manager.enable = true;
 
@@ -40,6 +47,15 @@
       enable = true;
       vimAlias = true;
       defaultEditor = true;
+    };
+    ssh = {
+      enable = true;
+      matchBlocks = {
+        "*.42sp.org.br" = {
+          port = 4222;
+          identityFile = "${config.home.homeDirectory}/.ssh/keys/id_ed25519";
+        };
+      };
     };
   };
 
