@@ -7,6 +7,7 @@
     gh
     git-crypt
     ripgrep
+    zoxide
   ];
 
   home.file = {
