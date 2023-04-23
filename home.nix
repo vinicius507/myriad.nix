@@ -4,15 +4,6 @@
   home.username = "vini";
   home.homeDirectory = "/home/vini";
 
-  home.packages = [ ];
-
-  home.file = {
-    ".config/nvim" = {
-      source = ./nvim;
-      recursive = true;
-    };
-  };
-
   programs.home-manager.enable = true;
   programs.fish = {
     enable = true;
@@ -32,6 +23,10 @@
   programs.neovim = {
     enable = true;
     vimAlias = true;
+  };
+
+  xdg.configFile = {
+    nvim.source = ./nvim;
   };
 
   #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
