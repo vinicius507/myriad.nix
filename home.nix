@@ -21,6 +21,7 @@
   programs.neovim = {
     enable = true;
     vimAlias = true;
+    defaultEditor = true;
   };
 
   xdg.configFile = {
@@ -30,10 +31,6 @@
           "${config.home.homeDirectory}/.config/home-manager/config/nvim";
       recursive = true;
     };
-  };
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
   };
 
   targets.genericLinux.enable = true;
