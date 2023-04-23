@@ -6,7 +6,12 @@
 
   home.packages = [ ];
 
-  home.file = { };
+  home.file = {
+    ".config/nvim" = {
+      source = ./nvim;
+      recursive = true;
+    };
+  };
 
   programs.home-manager.enable = true;
   programs.fish = {
@@ -16,12 +21,17 @@
         set acceptable_terms xterm-256color screen256-color xterm-termite
 
         if contains $TERM $acceptable_terms
-          fish_vi_key_bindings
+            fish_vi_key_bindings
         end
 
         zoxide init fish | source
         starship init fish | source
       '';
+  };
+
+  programs.neovim = {
+    enable = true;
+    vimAlias = true;
   };
 
   #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
