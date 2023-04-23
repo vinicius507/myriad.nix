@@ -1,6 +1,4 @@
-{ config, pkgs, ... }:
-
-{
+{ config, pkgs, ... }: {
   home.username = "vini";
   home.homeDirectory = "/home/vini";
 
@@ -26,7 +24,7 @@
   };
 
   xdg.configFile = {
-    nvim.source = ./nvim;
+    nvim.source = ./config/nvim;
   };
 
   home.sessionVariables = {
