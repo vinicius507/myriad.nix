@@ -29,7 +29,6 @@
     nvim.source = ./nvim;
   };
 
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
   home.sessionVariables = {
     EDITOR = "nvim";
   };
