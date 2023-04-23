@@ -24,7 +24,12 @@
   };
 
   xdg.configFile = {
-    nvim.source = ./config/nvim;
+    nvim = {
+      source =
+        config.lib.file.mkOutOfStoreSymlink
+          "${config.home.homeDirectory}/.config/home-manager/config/nvim";
+      recursive = true;
+    };
   };
 
   home.sessionVariables = {
