@@ -55,8 +55,12 @@
       enable = true;
       matchBlocks = {
         "*.42sp.org.br" = {
+          user = "root";
           port = 4222;
           identityFile = "${config.home.homeDirectory}/.ssh/keys/id_ed25519";
+        };
+        "ansiblevms.42sp.org.br" = {
+          user = "debian";
         };
       };
     };
